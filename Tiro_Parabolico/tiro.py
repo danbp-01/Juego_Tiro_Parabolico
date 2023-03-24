@@ -24,7 +24,7 @@ def draw():
 
     for target in targets:
         goto(target.x, target.y)
-        dot(20, 'blue')
+        dot(30, 'blue')
 
     if inside(ball):
         goto(ball.x, ball.y)
@@ -40,7 +40,7 @@ def move():
         targets.append(target)
 
     for target in targets:
-        target.x -= 0.5
+        target.x -= 6 #Incrementa la velocidad de los balones
 
     if inside(ball):
         speed.y -= 0.35
@@ -57,7 +57,7 @@ def move():
 
     for target in targets:
         if not inside(target):
-            return
+            continue #Este continue hace que no se acabe el juego cuando los balones salen del tablero
 
     ontimer(move, 50)
 
